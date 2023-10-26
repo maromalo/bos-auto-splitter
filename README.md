@@ -1,10 +1,18 @@
-# bos-auto-splitter
- Back Of Space auto splitter for LiveSplit
+# BACK OF SPACE autosplitter for LiveSplit
 
-current problems:
-- need a better start detection method
-  - starts on settings/system/stats/terminal if IL is on
-  - full run starts _after_ STS intro, skipping 1.4s (doesn't it make more sense this way tho?)
-- completedTimes is inconsistent, which breaks split method (game bug)
-  - might use completed bool instead, but will not work on IL with a save file that has already completed said region
-- reset sometimes doesn't work? idk
+Made for 0.495
+## Features
+- Can change between Full Run and IL (Individual Level/Region) mode
+- Automatic start:
+  - After resetting and finishing/skipping tutorial (**set your timer to start at 1.40s to count STS's intro**)
+  - (IL) After entering a region (or any 
+- Automatic split when finishing **any** region (so don't do the same twice)
+- Automatic reset:
+  - On factory reset
+  - (IL) On entering main menu
+
+***
+Bugs and notes:
+- (IL) starts on settings/system/stats/terminal
+- full run starts _after_ STS intro, skipping 1.4s (doesn't it make more sense this way tho?)
+- factory reset detection sometimes doesn't work for some reason
