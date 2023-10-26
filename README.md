@@ -5,7 +5,7 @@ Made for 0.495
 - Can change between Full Run and IL (Individual Level/Region) mode
 - Automatic start:
   - After resetting and finishing/skipping tutorial (**set your timer to start at 1.40s to count STS's intro**)
-  - (IL) After entering a region (or any 
+  - (IL) After entering a region
 - Automatic split when finishing **any** region (so don't do the same twice)
 - Automatic reset:
   - On factory reset
