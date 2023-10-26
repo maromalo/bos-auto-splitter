@@ -27,7 +27,7 @@ start
     if ((settings["IL"] && !current.isMainMenu && old.isMainMenu) || (current.clicks == 0 && current.timerStarted)) //can't figure out how to detect STS's intro without counting the tutorial
     {
         vars.cachedTimes = new int[] {current.STScompletedTimes, current.EScompletedTimes, current.EMcompletedTimes, current.FMcompletedTimes};
-        vars.lastRegion = current.selectedRegion;
+        vars.correctRegion = current.selectedRegion; //selectedRegion updates from STS _after_ ES's intro
         return true;
     }
 }
@@ -39,10 +39,10 @@ update
 
 split
 {
-    if (vars.currentTimes[vars.lastRegion] > vars.cachedTimes[vars.lastRegion])
+    if (vars.currentTimes[vars.correctRegion] > vars.cachedTimes[vars.correctRegion])
     {
         if (!settings["IL"]) {
-            vars.lastRegion = current.selectedRegion;
+            vars.correctRegion++;
             vars.cachedTimes = vars.currentTimes;
         }
         return true;
@@ -52,7 +52,7 @@ split
 reset
 {
     if (settings["IL"]) {
-        return (vars.currentTimes[vars.lastRegion] == vars.cachedTimes[vars.lastRegion]) && (current.isMainMenu && !old.isMainMenu); //on failing
+        return (vars.currentTimes[vars.correctRegion] == vars.cachedTimes[vars.correctRegion]) && (current.isMainMenu && !old.isMainMenu); //on failing
     }
     return (current.clicks < old.clicks); //on factory reset
 }
