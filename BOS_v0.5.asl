@@ -2,7 +2,7 @@ state("BACKOFSPACE")
 {
     //GameManager
     bool timerStarted : "UnityPlayer.dll", 0x1A36F98, 0x8, 0x0, 0x30, 0x18, 0xE0, 0x60, 0x1C0; 
-    
+
     //SaveLoadManager
     //-gameSaveData
     //--regionsSaveData[]
@@ -24,12 +24,12 @@ update
 
 start
 {    
-    current.clicks == 0 && current.timerStarted; //on game start after factory reset (doesn't count STS intro)
+    return current.clicks == 0 && current.timerStarted; //on game start after factory reset (doesn't count STS intro)
 }
 
 split
 {
-    return current.completedRegions > old.completedRegions;
+    return current.completedRegions > old.completedRegions; //on completing a region for the first time
 }
 
 reset
